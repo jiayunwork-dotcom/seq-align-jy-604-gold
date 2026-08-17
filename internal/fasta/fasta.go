@@ -54,6 +54,7 @@ func Parse(path string) ([]Record, error) {
 	for sc.Scan() {
 		line := sc.Text()
 		if first {
+			line = strings.TrimPrefix(line, "\ufeff")
 			first = false
 		}
 		line = strings.TrimSpace(line)
